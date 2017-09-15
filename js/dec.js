@@ -1,3 +1,8 @@
+function lPad(val, digits){
+  digits = digits || 2;
+  return ('000' + val).slice(digits * -1);
+}
+
 function getTime(){
   var today = new Date();
   // conventional
@@ -13,7 +18,7 @@ function getTime(){
     'seconds': seconds,
     'milliseconds': milliseconds,
     'secondsTotal': secondsTotal,
-    'time': ('00' + hours).slice(-2) + ":" + ('00' + minutes).slice(-2) + ":" + ('00' + seconds).slice(-2)
+    'time': lPad(hours) + ":" + lPad(minutes) + ":" + lPad(seconds)
   };
 }
 
@@ -39,7 +44,8 @@ function getDecimalTime(){
     'seconds': dSeconds,
     'milliseconds': dMilliseconds,
     'secondsTotal': dSecondsTotal,
-    'time': dHours + "." + dMinutes + "." + dSeconds
+    'time': dHours + "." + lPad(dMinutes) + "." + lPad(dSeconds),
+    'timePrecise': dHours + "." + lPad(dMinutes) + "." + lPad(dSeconds) + "." + lPad(dMilliseconds, 3)
   };
 }
 
