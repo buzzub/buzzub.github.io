@@ -158,3 +158,8 @@ body {
     width: 42rem;
   }
 }
+
+#clock-regular,
+#clock-decimal {
+  font-variant-numeric: tabular-nums;  
+}
